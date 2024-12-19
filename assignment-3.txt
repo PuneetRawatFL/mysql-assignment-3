@@ -1,0 +1,112 @@
+    NUMERIC FUNCTIONS ASSIGNMENT
+
+PRODUCTS TABLE -
+mysql> select * from products;
++--------------+---------------+----------+
+| product_name | product_price | discount |
++--------------+---------------+----------+
+| Product A    |       10.1234 |       -5 |
+| Product B    |       20.5678 |       10 |
+| Product C    |       15.6789 |      -15 |
+| Product D    |       25.9876 |       20 |
+| Product E    |       30.4567 |      -25 |
+| Product F    |       35.1234 |       30 |
+| Product G    |       40.7890 |      -35 |
+| Product H    |       45.6789 |       40 |
+| Product I    |       50.5678 |      -45 |
+| Product J    |       55.4567 |       50 |
++--------------+---------------+----------+
+
+
+1. Write a query to find the sum of the price column from a table named products.
+mysql> select sum(product_price) from products;
++--------------------+
+| sum(product_price) |
++--------------------+
+|           330.4302 |
++--------------------+
+
+2. Write a query to determine the highest and lowest values in the price column of the products table.
+mysql> select min(product_price) as lowest, max(product_price) as highest from products;
++---------+---------+
+| lowest  | highest |
++---------+---------+
+| 10.1234 | 55.4567 |
++---------+---------+
+
+3. Write a query to count the number of rows in the products table.
+mysql> select count(*) from products;
++----------+
+| count(*) |
++----------+
+|       10 |
++----------+
+
+4. Write a query to round the price column to 2 decimal places in the products table.
+mysql> select round(product_price, 2) from products;
++-------------------------+
+| round(product_price, 2) |
++-------------------------+
+|                   10.12 |
+|                   20.57 |
+|                   15.68 |
+|                   25.99 |
+|                   30.46 |
+|                   35.12 |
+|                   40.79 |
+|                   45.68 |
+|                   50.57 |
+|                   55.46 |
++-------------------------+
+
+5. Write a query to get the absolute value of the discount column from the products table.
+mysql> select abs(discount) from products;
++---------------+
+| abs(discount) |
++---------------+
+|             5 |
+|            10 |
+|            15 |
+|            20 |
+|            25 |
+|            30 |
+|            35 |
+|            40 |
+|            45 |
+|            50 |
++---------------+
+
+6. Write a query to find the price column values rounded up to the nearest integer using the CEIL function in 
+the products table.
+mysql> select ceil(product_price) from products;
++---------------------+
+| ceil(product_price) |
++---------------------+
+|                  11 |
+|                  21 |
+|                  16 |
+|                  26 |
+|                  31 |
+|                  36 |
+|                  41 |
+|                  46 |
+|                  51 |
+|                  56 |
++---------------------+
+
+7. Write a query to format the price column as currency (e.g., with a dollar sign) in the products table.
+mysql> select concat('$', format(product_price, 2)) as formatted_price from products;
++-----------------+
+| formatted_price |
++-----------------+
+| $10.12          |
+| $20.57          |
+| $15.68          |
+| $25.99          |
+| $30.46          |
+| $35.12          |
+| $40.79          |
+| $45.68          |
+| $50.57          |
+| $55.46          |
++-----------------+
